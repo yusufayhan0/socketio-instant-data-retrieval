@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body>
+    <h1>Yusuf AYHAN</h1>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    
+    <div class="container">
+        <h3>Döviz</h3>
+
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Dolar</th>
+                <th scope="col">Euro</th>
+                <th scope="col">İngiliz Sterlini</th>
+                <th scope="col">Kanada Doları</th>
+                <th scope="col">İsviçre Frangı</th>
+              </tr>
+            </thead>
+            <tbody>          
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
+    
+    
+          <h3>Altın</h3>
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">ONS Altın</th>
+                <th scope="col">Gram Altın</th>
+                <th scope="col">Çeyrek Altın</th>
+                <th scope="col">Yarım Altın</th>
+                <th scope="col">Tam Altın</th>
+              </tr>
+            </thead>
+            <tbody>          
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
+    
+    
+          <h3>Kripto Para</h3>
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Bincoin</th>
+                <th scope="col">Litecoin</th>
+                <th scope="col">Ripple</th>
+                <th scope="col">Cardano</th>
+                <th scope="col">Tron</th>
+              </tr>
+            </thead>
+            <tbody>          
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
+    </div>
+    <script>
+        $(function () {
+          var socket = io();
+          
+          socket.on('element', function(element){
+            $('table:nth-child(2) tbody tr td:nth-child(1)').text(element[0][0]);
+            $('table:nth-child(2) tbody tr td:nth-child(2)').text(element[0][1]);
+            $('table:nth-child(2) tbody tr td:nth-child(3)').text(element[0][2]);
+            $('table:nth-child(2) tbody tr td:nth-child(4)').text(element[0][3]);
+            $('table:nth-child(2) tbody tr td:nth-child(5)').text(element[0][4]);
+
+            
+            $('table:nth-child(4) tbody tr td:nth-child(1)').text(element[1][0]);
+            $('table:nth-child(4) tbody tr td:nth-child(2)').text(element[1][1]);
+            $('table:nth-child(4) tbody tr td:nth-child(3)').text(element[1][2]);
+            $('table:nth-child(4) tbody tr td:nth-child(4)').text(element[1][3]);
+            $('table:nth-child(4) tbody tr td:nth-child(5)').text(element[1][4]);
+
+            $('table:nth-child(6) tbody tr td:nth-child(1)').text(element[2][0]);
+            $('table:nth-child(6) tbody tr td:nth-child(2)').text(element[2][1]);
+            $('table:nth-child(6) tbody tr td:nth-child(3)').text(element[2][2]);
+            $('table:nth-child(6) tbody tr td:nth-child(4)').text(element[2][3]);
+            $('table:nth-child(6) tbody tr td:nth-child(5)').text(element[2][4]);
+
+          });
+        });
+      </script>
+</body>
+</html>
